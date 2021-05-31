@@ -1,0 +1,24 @@
+select * from Alunos;
+
+INSERT INTO Alunos(RA, NOME) VALUES (20728,'Giovana Zambanini');
+INSERT INTO Alunos(RA, NOME) VALUES (20138,'Isabela Clementino');
+INSERT INTO Alunos(RA, NOME) VALUES (20148,'Milena Shishito');
+
+
+select * from Disciplinas;
+
+INSERT INTO Disciplinas(Cod, Nome) VALUES (1,'História');
+INSERT INTO Disciplinas(Cod, Nome) VALUES (2,'Geografia');
+INSERT INTO Disciplinas(Cod, Nome) VALUES (3,'Biologia');
+INSERT INTO Disciplinas(Cod, Nome) VALUES (4,'Inglês');
+
+select * from Matriculas;
+
+INSERT INTO Matriculas(RA, Cod) VALUES (20728, 1);  
+INSERT INTO Matriculas(RA, Cod) VALUES (20138, 1);
+INSERT INTO Matriculas(RA, Cod) VALUES (20148, 1);
+INSERT INTO Matriculas(RA, Cod) VALUES (20728, 2);  
+INSERT INTO Matriculas(RA, Cod) VALUES (20138, 3);
+INSERT INTO Matriculas(RA, Cod) VALUES (20148, 4);
+
+

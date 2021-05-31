@@ -1,0 +1,31 @@
+CREATE TABLE Alunos (
+  RA NUMBER(5) PRIMARY KEY, 
+  Nome NVARCHAR2(40)
+) 
+
+CREATE TABLE Disciplinas (
+  Cod NUMBER(3) PRIMARY KEY,
+  Nome NVARCHAR2(40)
+)
+
+CREATE TABLE Resultados (
+  RA NUMBER(5),
+  Cod NUMBER(3),
+  Nota NUMBER(4,1) NOT NULL,
+  Freq NUMBER(5,1) NOT NULL,
+  PRIMARY KEY (RA,Cod),
+  FOREIGN KEY (RA)
+  REFERENCES Alunos(RA),
+  FOREIGN KEY (Cod)
+  REFERENCES Disciplinas(cod)
+)
+
+CREATE TABLE Matriculas ( 
+  RA NUMBER(5), 
+  Cod NUMBER(3), 
+  PRIMARY KEY (RA,Cod), 
+  FOREIGN KEY (RA) 
+  REFERENCES Alunos(RA), 
+  FOREIGN KEY (Cod) 
+  REFERENCES Disciplinas(cod)
+) 
