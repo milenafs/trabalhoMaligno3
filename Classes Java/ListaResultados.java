@@ -30,7 +30,7 @@ public class ListaResultados
 	
 	public String toString()
 	{
-		/*String ret = "";
+		String ret = "";
 		
 		int size = resultado.size();
 		
@@ -39,8 +39,8 @@ public class ListaResultados
 		{
 			Resultado resultadoVez = resultado.get(i);
 			ret += resultadoVez;
-		}*/
+		}
 		
-		return "teste";
+		return ret;
 	}
 }

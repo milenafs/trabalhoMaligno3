@@ -1,7 +1,7 @@
 public class Resultado
 {
 	int ra;
-	int cod;
+	int codigo;
 	float nota;
 	float freq;
 	
@@ -13,7 +13,7 @@ public class Resultado
 		this.setNota(essaNota);
 		this.setFreq(essaFreq);
 	}
-	
+	public Resultado(){}
 	//Setters
 	public void setRa(int esseRa)throws Exception
 	{
@@ -27,7 +27,7 @@ public class Resultado
 		if (esseCod <= 0)
             throw new Exception ("[ERROR] Codigo invalido.");
             
-        this.cod = esseCod;
+        this.codigo = esseCod;
 	}
 	public void setNota(float essaNota)throws Exception
 	{
@@ -51,7 +51,7 @@ public class Resultado
 	}
 	public int getCod()
 	{
-		return cod;
+		return codigo;
 	}
 	public float getNota()
 	{
@@ -66,10 +66,11 @@ public class Resultado
 	public String toString()
 	{
 		String ret="";
+		ret+="...................... \n";
 		ret+="RA........: "+this.ra+"\n";
-        ret+="Codigo....: "+this.cod +"\n";
+        ret+="Codigo....: "+this.codigo +"\n";
         ret+="Nota......: "+this.nota +"\n";
-		ret+="Frequencia: "+this.freq;
+		ret+="Frequencia: "+this.freq +"\n\n";
         return ret;
 	}
 	public boolean equals (Object obj)
@@ -88,7 +89,7 @@ public class Resultado
 		if(this.ra != res.ra)
           return false;
         
-		if(this.cod != res.cod)
+		if(this.codigo != res.codigo)
           return false;
           
 		if(this.nota != res.nota)
@@ -104,7 +105,7 @@ public class Resultado
 
 		int ret = 666; 
 		ret = 7*ret + new Integer(this.ra).hashCode();
-		ret = 7*ret + new Integer(this.cod).hashCode();        
+		ret = 7*ret + new Integer(this.codigo).hashCode();        
 		ret = 7*ret + new Float(this.nota).hashCode();
 		ret = 7*ret + new Float(this.freq).hashCode();
 
@@ -113,7 +114,7 @@ public class Resultado
 	public Resultado (Resultado modelo) throws Exception
 	{
 		this.ra = modelo.ra;
-		this.cod = modelo.cod;
+		this.codigo = modelo.codigo;
 		this.nota = modelo.nota;
 		this.freq = modelo.freq;
 	}

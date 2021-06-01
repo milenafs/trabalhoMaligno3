@@ -12,7 +12,7 @@ public class Teste {
 		}
 		catch(Exception err)
 			{
-				System.err.println("[ERRO] " + err.getMessage());
+				System.err.println("[ERRO]------------- " + err.getMessage());
 			}
 		
 	}

@@ -51,6 +51,7 @@ public class ClienteWS
         catch (Exception erro)
         {
              erro.printStackTrace();
+             System.out.println(">***** [ERROR]" + erro.toString() );
         }	
 
         return objetoRetorno;
@@ -196,11 +197,10 @@ public class ClienteWS
     	}
     	catch(Exception err)
     	{
-    		System.out.println("");
+    		System.out.print("");
     	}
       
-        
-
+       
         return obj;
     }
 }

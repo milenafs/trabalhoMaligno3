@@ -8,7 +8,9 @@ public class Programa
 		char opcao = 'f';
 		Resultado auxResultado = null;
 		Fila<Resultado> filaResultados = new Fila<Resultado>();;
-	
+		System.out.println();
+		System.out.println("**********************************************************************");
+		System.out.println ("Grupo:\nGiovana Mendonca Zambanini  (20178) \nIsabela Clementino Ponciano (20138) \nMilena Furuta Shishito      (20148)");
 		do
 		{
 			try
@@ -16,7 +18,7 @@ public class Programa
 				System.out.println();
 				System.out.println("**********************************************************************");
 				System.out.println("(a) Adicionar o resultado de um aluno.");
-				System.out.println("(f) Finalizar insercao.");
+				System.out.println("(f) Finalizar cadastro dos resultados.");
 				System.out.println("**********************************************************************");
 				System.out.println();
 				System.out.print  (" > Opcao: ");
@@ -59,29 +61,31 @@ public class Programa
 				
 		//2º parte:Recupere todas as instâncias da fila de Resultado
 		// e, com seus dados, aciona os WEB-Services
-
-		while(!filaResultados.isVazia())
+		if(opcao == 'f')
 		{
-			Resultado resultadoAtual = null;
-			try
+			while(!filaResultados.isVazia())
 			{
-				resultadoAtual = filaResultados.recupereUmItem();
+				Resultado resultadoAtual = null;
+				try
+				{
+					resultadoAtual = filaResultados.recupereUmItem();
 
-				ClienteWS.deleteObjeto(Resultado.class, "http://localhost:3000/Matriculas/" + resultadoAtual.getCod() + "/" + resultadoAtual.getRa());
-				
-				ClienteWS.postObjeto(resultadoAtual, Resultado.class, "http://localhost:5000/resultados");
-				
-				filaResultados.removaUmItem();
+					ClienteWS.deleteObjeto(Resultado.class, "http://localhost:3000/Matriculas/" + resultadoAtual.getCod() + "/" + resultadoAtual.getRa());
+					
+					ClienteWS.postObjeto(resultadoAtual, Resultado.class, "http://localhost:5000/resultados");
+					
+					filaResultados.removaUmItem();
+				}
+				catch(Exception err)
+				{
+					System.err.println("[ERRO]");
+				}
 			}
-			catch(Exception err)
-			{
-				System.err.println("[ERRO]");
-			}
+
+			// Printa tudo da fila de Resultado
+			ListaResultados resultado = (ListaResultados)ClienteWS.getObjeto(ListaResultados.class, "http://localhost:5000/resultados");
+			System.out.println (resultado);
 		}
-
-		// Printa tudo da fila de Resultado
-		ListaResultados resultado = (ListaResultados)ClienteWS.getObjeto(ListaResultados.class, "http://localhost:5000/resultados");
-    	System.out.println (resultado);
 
 	}
 }
